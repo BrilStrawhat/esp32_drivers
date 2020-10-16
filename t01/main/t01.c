@@ -1,8 +1,3 @@
-// #include <stdio.h>
-// #include "freertos/FreeRTOS.h"
-// #include "freertos/task.h"
-// #include "driver/gpio.h"
-// #include "sdkconfig.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -26,14 +21,7 @@ void app_main(void)
     io_conf.mode = GPIO_MODE_OUTPUT;
     gpio_config(&io_conf);
 
-    while(1) {
-        gpio_set_level(LED1, 0);
-        gpio_set_level(LED2, 0);
-        gpio_set_level(LED3, 0);
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
-        gpio_set_level(LED1, 1);
-        gpio_set_level(LED2, 1);
-        gpio_set_level(LED3, 1);
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
-    }
+    gpio_set_level(LED1, 1);
+    gpio_set_level(LED2, 1);
+    gpio_set_level(LED3, 1);
 }
